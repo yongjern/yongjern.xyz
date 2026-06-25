@@ -2,31 +2,42 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ShoppingBag, Server, ExternalLink, Zap } from "lucide-react";
+import { ShoppingBag, Server, ExternalLink, Zap, Rss } from "lucide-react";
 
 // ─── Project data ────────────────────────────────────────────────────────────
 const projects = [
   {
     icon: ShoppingBag,
-    eyebrow: "E-Commerce Platform",
-    title: "XPStore",
+    eyebrow: "綫上商業 E-Commerce",
+    title: "XPStore — 一站式綫上充值中心",
     description:
-      "A self-operated digital goods storefront delivering game credits, premium subscriptions, and exclusive digital services. Handles end-to-end fulfilment through automated n8n workflows.",
-    tags: ["Next.js", "WooCommerce", "n8n", "Payment API", "Automation"],
+      "(2025-NOW) 一個專門為綫上玩家打造的軍火庫！有便宜的串流服務，游戲直充服務，及綫上代購服務等。在之前專門搭建網站，處理金流及訂單。目前正在進行轉型計劃。",
+    tags: ["Wordpress (從0開始架設)", "WooCommerce (國際/國内金流處理)", "Discord社群架設", "轉型中"],
     tagColor: "blue",
     // ── Replace with your live XPStore URL ──────────────────────────────────
-    href: "https://xpstore.example.com",
+    href: "https://example.com",
     glowClass: "hover:shadow-glass-blue",
   },
   {
     icon: Server,
-    eyebrow: "Personal Infrastructure",
+    eyebrow: "個人架設",
     title: "yongjern.xyz",
     description:
-      "Personal domain hosting multiple active projects, a developer blog, and experimental builds. Managed with CI/CD pipelines, Nginx reverse proxy, and n8n-powered deployment hooks.",
-    tags: ["Linux VPS", "Nginx", "WordPress", "Astro", "Domain Mgmt"],
+      "個人架設網站 yongjern.xyz, 及旗下各個網站。内容雖然不一定是我 100% 寫的，但一定都有被我調試過! (此描述不包含部落格)",
+    tags: ["Vercel 架設網站", "Github 存儲", "擁有 WordPress 架設經驗", "個人網站", "網域購買"],
     tagColor: "teal",
     href: "https://yongjern.xyz",
+    glowClass: "hover:shadow-glass-teal",
+  },
+  {
+    icon: Rss,
+    eyebrow: "部落格架設",
+    title: "Yong's Markdown",
+    description:
+      "分享自己寫的文章，包括 AI 實戰，政治評論等等。歡迎在那邊查看我的意見",
+    tags: ["意見發表", "Blog", "Next.js"],
+    tagColor: "teal",
+    href: "https://blog.yongjern.xyz",
     glowClass: "hover:shadow-glass-teal",
   },
 ];
