@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { label: "Work",    href: "#projects" },
-  { label: "Skills",  href: "#skills"   },
-  { label: "Resume",  href: "#resume"   },
-  { label: "Contact", href: "#contact"  },
+  { label: "💼 · 項目",    href: "#projects" },
+  { label: "🔧 · 技能",  href: "#skills"   },
+  { label: "🔋 · 簡歷(CV)",  href: "#resume"   },
+  { label: "📞 · 聯絡", href: "#contact"  },
 ];
 
 export default function Navbar() {
@@ -42,7 +42,7 @@ export default function Navbar() {
             href="#"
             className="text-white/80 hover:text-white font-semibold tracking-wide transition-colors text-base select-none"
           >
-            YJE
+            Yongg.
           </a>
 
           {/* Desktop nav links */}
