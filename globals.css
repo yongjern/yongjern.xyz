@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+───────────────────────────────────────── */
+:root {
+  --color-base:        #070a14;
+  --color-glass-bg:    rgba(255, 255, 255, 0.06);
+  --color-glass-border:rgba(255, 255, 255, 0.12);
+  --color-glass-top:   rgba(255, 255, 255, 0.16);  /* top-edge highlight */
+  --color-text-primary:rgba(255, 255, 255, 0.92);
+  --color-text-muted:  rgba(255, 255, 255, 0.50);
+  --color-text-faint:  rgba(255, 255, 255, 0.28);
+  --color-accent:      #a5b4fc;   /* soft indigo */
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─────────────────────────────────────────
+   BASE RESETS
+───────────────────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom text selection */
+::selection {
+  background: rgba(165, 180, 252, 0.30);
+  color: #fff;
+}
+
+/* Custom scrollbar (desktop) */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ─────────────────────────────────────────
+   AURORA BACKGROUND
+   Low-saturation, macOS Sonoma–inspired blobs.
+   All animation lives in tailwind.config.ts.
+───────────────────────────────────────── */
+.aurora-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--color-base);
+  pointer-events: none;
+  will-change: transform; /* GPU layer */
+}
+
+/* Individual blobs — styled here, animated via Tailwind keyframes */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.38;
+  will-change: transform;
+}
+
+.aurora-blob-1 {
+  /* Midnight indigo — top-left */
+  width:  70vw;
+  height: 70vw;
+  max-width:  900px;
+  max-height: 900px;
+  background: radial-gradient(circle at center,
+    #1a2a6e 0%,
+    #151e52 40%,
+    transparent 70%
+  );
+  top: -15%;
+  left: -10%;
+  animation: aurora1 28s ease-in-out infinite alternate;
+}
+
+.aurora-blob-2 {
+  /* Deep muted violet — right center */
+  width:  55vw;
+  height: 55vw;
+  max-width:  750px;
+  max-height: 750px;
+  background: radial-gradient(circle at center,
+    #2e1860 0%,
+    #200f45 40%,
+    transparent 70%
+  );
+  top: 25%;
+  right: -12%;
+  animation: aurora2 34s ease-in-out infinite alternate;
+}
+
+.aurora-blob-3 {
+  /* Dark teal — bottom center */
+  width:  60vw;
+  height: 60vw;
+  max-width:  800px;
+  max-height: 800px;
+  background: radial-gradient(circle at center,
+    #0d3048 0%,
+    #081d30 40%,
+    transparent 70%
+  );
+  bottom: -15%;
+  left:    20%;
+  animation: aurora3 40s ease-in-out infinite alternate;
+}
+
+.aurora-blob-4 {
+  /* Soft dusty purple — top right */
+  width:  40vw;
+  height: 40vw;
+  max-width:  550px;
+  max-height: 550px;
+  background: radial-gradient(circle at center,
+    #3b1f6a 0%,
+    #260e4e 40%,
+    transparent 70%
+  );
+  top: -5%;
+  right: 5%;
+  opacity: 0.22;
+  animation: aurora4 24s ease-in-out infinite alternate;
+}
+
+/* Fine noise grain overlay for organic feel */
+.aurora-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   GLASSMORPHISM SYSTEM
+───────────────────────────────────────── */
+
+/* Base glass card */
+.glass-card {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(48px) saturate(160%);
+  -webkit-backdrop-filter: blur(48px) saturate(160%);
+  border: 1px solid var(--color-glass-border);
+  /* Top-edge highlight simulates the glass bevel refraction */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 var(--color-glass-top),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* Deeper glass for prominent panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(64px) saturate(180%);
+  -webkit-backdrop-filter: blur(64px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Glass pill / tag */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Primary glass button (CTA) */
+.glass-btn-primary {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(147, 165, 252, 0.20) 0%,
+    rgba(167, 139, 250, 0.16) 50%,
+    rgba(147, 197, 253, 0.18) 100%
+  );
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(165, 180, 252, 0.35);
+  box-shadow:
+    0 4px 20px rgba(99, 102, 241, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all 0.35s var(--ease-out-expo);
+}
+
+.glass-btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 165, 252, 0.28) 0%,
+    rgba(167, 139, 250, 0.22) 50%,
+    rgba(147, 197, 253, 0.26) 100%
+  );
+  border-color: rgba(165, 180, 252, 0.50);
+  box-shadow:
+    0 8px 40px rgba(99, 102, 241, 0.35),
+    0 0 0 1px rgba(165, 180, 252, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+  transform: translateY(-2px);
+}
+
+.glass-btn-primary:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* Secondary / ghost button */
+.glass-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.35s var(--ease-out-expo);
+}
+
+.glass-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Glass icon button */
+.glass-icon-btn {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.glass-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+/* ─────────────────────────────────────────
+   GRADIENT TEXT  (name highlight)
+   Soft aurora colours cycling slowly.
+───────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    #a5b4fc 0%,   /* soft indigo */
+    #c4b5fd 35%,  /* light violet */
+    #93c5fd 65%,  /* sky blue */
+    #a5b4fc 100%  /* back to indigo */
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ─────────────────────────────────────────
+   SECTION DIVIDER
+───────────────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+/* ─────────────────────────────────────────
+   UTILITY: visually hidden (a11y)
+───────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Keyframe animations (mirrors tailwind.config.ts) */
+@keyframes aurora1 {
+  0%   { transform: translate(0%,   0%)  scale(1);    }
+  33%  { transform: translate(4%,   7%)  scale(1.08); }
+  66%  { transform: translate(-2%,  3%)  scale(0.96); }
+  100% { transform: translate(3%,  -4%)  scale(1.04); }
+}
+@keyframes aurora2 {
+  0%   { transform: translate(0%,   0%)  scale(1);    }
+  33%  { transform: translate(-6%, -4%)  scale(1.10); }
+  66%  { transform: translate(4%,   6%)  scale(0.93); }
+  100% { transform: translate(-3%,  2%)  scale(1.05); }
+}
+@keyframes aurora3 {
+  0%   { transform: translate(0%,   0%)  scale(1);    }
+  33%  { transform: translate(5%,  -6%)  scale(1.06); }
+  66%  { transform: translate(-4%,  4%)  scale(0.97); }
+  100% { transform: translate(2%,   5%)  scale(1.02); }
+}
+@keyframes aurora4 {
+  0%   { transform: translate(0%,   0%)  scale(1);    }
+  50%  { transform: translate(-5%,  3%)  scale(1.07); }
+  100% { transform: translate(4%,  -4%)  scale(0.95); }
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0);  }
+  50%       { transform: translateY(8px); }
+}
