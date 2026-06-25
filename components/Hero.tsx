@@ -35,7 +35,7 @@ export default function Hero() {
         <motion.div variants={itemVariants}>
           <span className="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-sm text-white/60 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Open to freelance &amp; collaboration
+            歡迎使用主流社交媒體聯係!
           </span>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function Hero() {
           className="text-lg sm:text-xl md:text-2xl font-light
                      tracking-widest uppercase text-white/38 mb-7"
         >
-          Web Developer &amp; Digital Entrepreneur
+          Student &amp; Freelance
         </motion.p>
 
         {/* Bio */}
@@ -63,11 +63,11 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-xl text-white/52 leading-relaxed text-base md:text-lg mb-10"
         >
-          Passionate about automation technology and server architecture,
-          focused on building digital platforms with real commercial impact.
+          對於自動化 AI, 生成式 AI 感興趣! 
+          針對以上興趣歡迎查看我的項目及經驗
           <br />
           <span className="text-white/30 text-sm mt-1 inline-block">
-            熱衷於自動化技術與伺服器管理，專注於構建具備商業價值的數位平台。
+            大部分專案使用 AI 生成，擁有微微的 JavaScript 經驗。
           </span>
         </motion.p>
 
@@ -80,13 +80,13 @@ export default function Hero() {
             href="#resume"
             className="glass-btn-primary px-7 py-3 rounded-xl text-sm font-medium text-white/90"
           >
-            View Resume
+            查看簡歷 (CV)
           </a>
           <a
             href="#contact"
             className="glass-btn-secondary px-7 py-3 rounded-xl text-sm font-medium text-white/55 hover:text-white/80"
           >
-            Get in Touch
+            聯係我
           </a>
         </motion.div>
 
