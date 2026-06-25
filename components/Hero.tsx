@@ -35,7 +35,7 @@ export default function Hero() {
         <motion.div variants={itemVariants}>
           <span className="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-sm text-white/60 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            歡迎使用主流社交媒體聯係!
+            歡迎使用主流社交媒體聯係! 7天内能回復就會回復! 
           </span>
         </motion.div>
 
@@ -63,7 +63,7 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-xl text-white/52 leading-relaxed text-base md:text-lg mb-10"
         >
-          20 y.o Student\n目前個人對於自動化 AI, 生成式 AI 感興趣，但未針對這些技能來系統性培訓\n
+          20 y.o Student, Now waiting at University Applies<br></br>目前個人對於自動化 AI, 生成式 AI 感興趣，但未針對這些技能來系統性培訓<br></br>
           針對以上興趣歡迎查看我的項目及經驗
           <br />
           <span className="text-white/30 text-sm mt-1 inline-block">
