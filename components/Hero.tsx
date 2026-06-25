@@ -63,7 +63,7 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-xl text-white/52 leading-relaxed text-base md:text-lg mb-10"
         >
-          對於自動化 AI, 生成式 AI 感興趣! 
+          20 y.o Student\n目前個人對於自動化 AI, 生成式 AI 感興趣，但未針對這些技能來系統性培訓\n
           針對以上興趣歡迎查看我的項目及經驗
           <br />
           <span className="text-white/30 text-sm mt-1 inline-block">
