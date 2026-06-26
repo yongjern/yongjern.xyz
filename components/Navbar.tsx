@@ -38,11 +38,16 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-14 md:h-16">
 
           {/* Logo / monogram */}
-          <a
-            href="#"
-            className="text-white/80 hover:text-white font-semibold tracking-wide transition-colors text-base select-none"
-          >
-            Yongg.
+<a href="#" className="flex items-center">
+  <Image
+    src="/media/logo.png"
+    alt="Yong Jie Ern"
+    width={80}
+    height={32}
+    className="h-8 w-auto object-contain"
+    priority
+  />
+</a>
           </a>
 
           {/* Desktop nav links */}
