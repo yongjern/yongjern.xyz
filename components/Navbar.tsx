@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-1">
             {links.map((link) => (
-              
+              <a
                 key={link.href}
                 href={link.href}
                 className="
@@ -91,7 +91,7 @@ export default function Navbar() {
             className="md:hidden mx-4 mt-1 rounded-2xl glass-card px-4 py-4 flex flex-col gap-1"
           >
             {links.map((link) => (
-              
+              <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
