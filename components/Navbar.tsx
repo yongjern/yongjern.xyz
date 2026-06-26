@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const links = [
-  { label: "💼 · 項目",    href: "#projects" },
-  { label: "🔧 · 技能",  href: "#skills"   },
-  { label: "🔋 · 簡歷(CV)",  href: "#resume"   },
-  { label: "📞 · 聯絡", href: "#contact"  },
+  { label: "Work",    href: "#projects" },
+  { label: "Skills",  href: "#skills"   },
+  { label: "Resume",  href: "#resume"   },
+  { label: "Contact", href: "#contact"  },
 ];
 
 export default function Navbar() {
@@ -37,23 +38,22 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-14 md:h-16">
 
-          {/* Logo / monogram */}
-<a href="#" className="flex items-center">
-  <Image
-    src="/media/logo.png"
-    alt="Yong Jie Ern"
-    width={80}
-    height={32}
-    className="h-8 w-auto object-contain"
-    priority
-  />
-</a>
+          {/* Logo */}
+          <a href="#" className="flex items-center">
+            <Image
+              src="/media/logo.png"
+              alt="Yong Jie Ern"
+              width={80}
+              height={32}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-1">
             {links.map((link) => (
-              <a
+              
                 key={link.href}
                 href={link.href}
                 className="
@@ -91,7 +91,7 @@ export default function Navbar() {
             className="md:hidden mx-4 mt-1 rounded-2xl glass-card px-4 py-4 flex flex-col gap-1"
           >
             {links.map((link) => (
-              <a
+              
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
