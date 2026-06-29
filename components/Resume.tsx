@@ -36,10 +36,10 @@ export default function Resume() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            Résumé / CV
+           我的簡歷
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            My full background
+            需要知道更多嗎? HERE:
           </h2>
         </motion.div>
 
