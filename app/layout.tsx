@@ -13,10 +13,20 @@ export const metadata: Metadata = {
   description: "Yong Jie Ern 的個人網頁. 在這裏你可以找到他的資訊，及聯係方式。",
   keywords: ["web developer", "Next.js", "React", "automation", "n8n", "Yongg"],
   authors: [{ name: "Yong Jie Ern", url: "https://yongjern.xyz" }],
+  icons: {
+    icon: "/media/logo.png", 
+  },
   openGraph: {
     title: "Who are Yong Jie Ern?",
     description: "查看關於 Yong 的資料!",
-    images: "/media/logo.png",
+    images: [
+      {
+        url: "/media/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Yong's Logo",
+      },
+    ],
     url: "https://yongjern.xyz",
     siteName: "Yongg's Portfolio",
     locale: "zh_TW",
