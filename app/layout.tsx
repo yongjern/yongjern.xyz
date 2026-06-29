@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   icons: {
     icon: "/media/logo.png", 
   },
+  
+  twitter: {
+    card: "summary", // 🌟 關鍵：設定為 "summary" 就會變成右側小縮圖。如果是 "summary_large_image" 就會是滿版大圖。
+    title: "Who are Yong Jie Ern?",
+    description: "查看關於 Yong 的資料!",
+    images: ["/media/logo.png"], // 縮圖直接吃你的圓形 Logo
+  },
+  
   openGraph: {
     title: "Who are Yong Jie Ern?",
     description: "查看關於 Yong 的資料!",
@@ -28,7 +36,7 @@ export const metadata: Metadata = {
       },
     ],
     url: "https://yongjern.xyz",
-    siteName: "Yongg's Portfolio",
+    siteName: "你收到了來自 yongjern.xyz 的鏈接邀請!",
     locale: "zh_TW",
     type: "website",
   },
