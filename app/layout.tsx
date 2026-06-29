@@ -10,17 +10,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Yong Jie Ern — Web Developer & Digital Entrepreneur",
+  title: "yongjern.xyz · 歡迎光臨 Yong　的主頁",
   description:
-    "Personal portfolio of Yong Jie Ern. Passionate about automation, server management, and building digital platforms with real commercial value.",
-  keywords: ["web developer", "Next.js", "React", "automation", "n8n", "XPStore"],
+    "Yong Jie Ern 的個人網頁. 在這裏你可以找到他的資訊，及聯係方式。",
+  keywords: ["web developer", "Next.js", "React", "automation", "n8n", "Yongg"],
   authors: [{ name: "Yong Jie Ern", url: "https://yongjern.xyz" }],
   openGraph: {
-    title: "Yong Jie Ern — Web Developer & Digital Entrepreneur",
-    description: "Building automation-first digital platforms.",
+    title: "Who are Yong Jie Ern?",
+    description: "查看關於 Yong 的資料!",
     url: "https://yongjern.xyz",
-    siteName: "Yong Jie Ern",
-    locale: "en_US",
+    siteName: "Yongg's Portfolio",
+    locale: "zh_TW",
     type: "website",
   },
   robots: { index: true, follow: true },
