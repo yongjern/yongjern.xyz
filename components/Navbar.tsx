@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-14 md:h-16">
 
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center justify-center h-10 w-10 rounded-full overflow-hidden bg-white/5 border border-white/10 p-0.5">
             <Image
               src="/media/logo.png"
               alt="Yong Jie Ern"
