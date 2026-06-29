@@ -81,10 +81,10 @@ export default function Projects() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            Projects &amp; Experience
+            開發及參與項目 (Tech)
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            Things I've built &amp; run
+            這些都是我的寶貝!
           </h2>
         </motion.div>
 
@@ -163,10 +163,10 @@ export default function Projects() {
           </div>
           <div>
             <p className="text-sm font-medium text-white/70 mb-1">
-              Full-stack capability
+              我對以下東西有一點點基礎. 我都有實戰使用過他們 :
             </p>
             <p className="text-xs text-white/38 leading-relaxed">
-              React · Next.js · Astro · WordPress · WooCommerce · n8n automation · Linux server admin
+              React · Next.js · Astro · WordPress · WooCommerce ·
             </p>
           </div>
         </motion.div>
