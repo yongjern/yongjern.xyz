@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LXGW_WenKai_TC } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const LXGW_WENKAI_TC = LXGW_WENKAI_TC({
   display: "swap",
   weight: ["300", "400", "700"],
 });
