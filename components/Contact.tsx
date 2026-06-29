@@ -8,18 +8,17 @@ import { Globe, Youtube, Github, Mail, ArrowUpRight } from "lucide-react";
 const socials = [
   {
     id: "youtube",
-    label: "YONG",
-    sublabel: "YouTube Channel",
+    label: "Yong.",
+    sublabel: "一個執著於翻唱的 Youtube 頻道.",
     icon: Youtube,
-    // ← Replace with your YouTube channel URL
-    href: "https://www.youtube.com/@YONG",
+    href: "https://www.youtube.com/@jernyong",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,0,0,0.18)]",
     iconColour: "text-red-400/70",
   },
   {
     id: "website",
     label: "yongjern.xyz",
-    sublabel: "Personal Domain",
+    sublabel: "個人網站. 但你沒辦法在這邊聯係我就是了!",
     icon: Globe,
     href: "https://yongjern.xyz",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(99,102,241,0.18)]",
@@ -27,8 +26,8 @@ const socials = [
   },
   {
     id: "github",
-    label: "yongjern",
-    sublabel: "GitHub Profile",
+    label: "@yongjern",
+    sublabel: "我的 Github 網頁. 裏面不會放寶藏，裏面只是實驗品而已.",
     icon: Github,
     href: "https://github.com/yongjern",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]",
@@ -36,11 +35,10 @@ const socials = [
   },
   {
     id: "email",
-    label: "Email Me",
-    sublabel: "Direct message",
+    label: "Email 聯係",
+    sublabel: "正式商業合作請走這邊! 我們會在7個工作日内回答各位的 Email.",
     icon: Mail,
-    // ← Replace with your email address
-    href: "mailto:hello@yongjern.xyz",
+    href: "mailto:jieernyong1207@gmail.com",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(20,184,166,0.18)]",
     iconColour: "text-teal-300/70",
   },
