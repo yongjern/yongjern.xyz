@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { LXGW_WenKai_TC } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "700"],
 });
 
 export const metadata: Metadata = {
