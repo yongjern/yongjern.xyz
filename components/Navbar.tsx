@@ -46,6 +46,7 @@ export default function Navbar() {
               width={80}
               height={32}
               className="h-8 w-auto object-contain"
+              style="border-radius: 8px"
               priority
             />
           </a>
