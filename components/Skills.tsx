@@ -6,24 +6,24 @@ import { motion, useInView } from "framer-motion";
 // ─── Skill categories ─────────────────────────────────────────────────────────
 const categories = [
   {
-    label: "Frontend",
+    label: "我會熟練使用以下AI :",
     colour: "blue",
-    skills: ["React (JSX)", "Next.js", "Astro.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    skills: ["Gemini (Flash/Pro)", "Claude Opus", "Meta AI (Video Generation)", "Manus AI", "Github Copilot (Coding)", "ChatGPT"],
   },
   {
-    label: "Backend & CMS",
+    label: "我會使用下列辦公軟件 :",
     colour: "purple",
-    skills: ["Node.js", "PHP", "WordPress", "WooCommerce", "REST APIs", "MySQL"],
+    skills: ["Word", "Powerpoint", "Office", "Google Forms", "剪映 (影片剪輯)", "Canva (圖文設計)"],
   },
   {
-    label: "Automation & DevOps",
+    label: "我有以下的娛樂技能 (如果你需要可以表演LA) :",
     colour: "teal",
-    skills: ["n8n Workflows", "CI/CD Pipelines", "Nginx", "Linux Server Admin", "Webhooks", "Cron Jobs"],
+    skills: ["Singing 唱歌", "Dad Jokes/Comedy 逗人開心的角色", "Non-profesional Counselor 傾聽者/建議者"],
   },
   {
-    label: "Platform & Infrastructure",
+    label: "我對這些文件有基礎知識 :",
     colour: "indigo",
-    skills: ["Vercel", "Self-hosted VPS", "Domain Management", "SSL / Cloudflare", "Docker (basics)"],
+    skills: ["HTML", "JavaScript", "CSS", "Markdown", "Minecraft Server 相關config"],
   },
 ];
 
@@ -73,10 +73,10 @@ export default function Skills() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            Technical Skills
+            技能
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            What I work with
+            要看我的技能點加在什麽上面嗎? 這裏給你看 :
           </h2>
         </motion.div>
 
