@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html, body, .font-sans {
+    font-family: var(--font-lxgw), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  }
+}
 /* ─────────────────────────────────────────
    CSS CUSTOM PROPERTIES
 ───────────────────────────────────────── */
