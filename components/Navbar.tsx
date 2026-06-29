@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const links = [
-  { label: "Work",    href: "#projects" },
-  { label: "Skills",  href: "#skills"   },
-  { label: "Resume",  href: "#resume"   },
-  { label: "Contact", href: "#contact"  },
+  { label: "⚡ · 項目",    href: "#projects" },
+  { label: "🔧 · 技能",  href: "#skills"   },
+  { label: "📂 · 簡歷",  href: "#resume"   },
+  { label: "💬 · 聯係方式", href: "#contact"  },
 ];
 
 export default function Navbar() {
