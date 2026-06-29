@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { LXGW_WenKai_TC } from "next/font/google"; // 1. 保持原創的 font 命名
+import localFont from "next/font/local"; // 💡 改用 localFont
 import "./globals.css";
 
-// 2. 修正變數名稱，並加入中文字體必備的 preload: false
-const lxgwWenKai = LXGW_WenKai_TC({
-  display: "swap",
-  weight: ["300", "400", "700"],
-  preload: false, // 關鍵：中文字體必須關閉預載
+// 💡 載入你放在 public/fonts 裡的 .ttf 字體檔案
+const lxgwWenKai = localFont({
+  src: "../public/fonts/LXGWWenKaiTC-Regular.ttf", // 變更為 .ttf 副檔名
+  variable: "--font-lxgw", // 註冊為 CSS 變數
 });
 
 export const metadata: Metadata = {
@@ -29,8 +28,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // 3. 將原本未定義的 inter.variable 改為 lxgwWenKai.className
-    <html lang="en" className={`${lxgwWenKai.className} scroll-smooth`}>
+    // 💡 將字體變數掛在 html 上
+    <html lang="en" className={`${lxgwWenKai.variable} scroll-smooth`}>
       <body className="antialiased bg-aurora-base text-white overflow-x-hidden">
         {children}
       </body>
