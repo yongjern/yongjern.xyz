@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Who are Yong Jie Ern?",
     description: "查看關於 Yong 的資料!",
-    image: "/media/logo.png",
+    images: "/media/logo.png",
     url: "https://yongjern.xyz",
     siteName: "Yongg's Portfolio",
     locale: "zh_TW",
