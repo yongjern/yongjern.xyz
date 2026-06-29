@@ -59,11 +59,10 @@ export default function Resume() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-white/88 mb-2 tracking-tight">
-                  Curriculum Vitae
+                 我的簡歷 (或者算是更詳細的自我介紹)
                 </h3>
                 <p className="text-sm text-white/45 leading-relaxed max-w-sm">
-                  Education, project history, technical proficiencies, and work
-                  experience — all in one document.
+                  學習經驗，取得什麽成就，都在這個文件裏！<br></br> 點任何的按鈕都會讓你下載我的 CV, 我會在看如何搞定綫上預覽的部分!
                 </p>
               </div>
             </div>
@@ -81,7 +80,7 @@ export default function Resume() {
                            px-6 py-3 rounded-xl text-sm font-medium text-white/90"
               >
                 <Download size={15} />
-                Download CV
+                下載我的簡歷 (.pdf)
               </motion.a>
 
               {/* Secondary — view in new tab */}
@@ -95,7 +94,7 @@ export default function Resume() {
                            px-6 py-3 rounded-xl text-sm font-medium text-white/50
                            hover:text-white/75"
               >
-                View Full Resume
+                查看完整的簡歷
                 <ArrowUpRight size={14} />
               </motion.a>
 
