@@ -75,14 +75,13 @@ export default function Contact() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            Contact &amp; Socials
+            聯係方式 + 社交平臺
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            Let's connect
+            你可以在這些平臺聯係我!
           </h2>
           <p className="mt-3 text-white/40 text-sm max-w-md">
-            Whether it's a project idea, collaboration, or just a hello — I'm
-            reachable through any of these.
+           私訊我請不要感到負擔! Feel Free to DM! <br></br> 不回你只是單純沒看到而已!!!
           </p>
         </motion.div>
 
