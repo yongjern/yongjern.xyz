@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local"; // 💡 改用 localFont
+import { Noto_Sans_TC } from "next/font/google"; // 💡 改為引入 Google 官方的思源黑體
 import "./globals.css";
 
-// 💡 載入你放在 public/fonts 裡的 .ttf 字體檔案
-const lxgwWenKai = localFont({
-  src: "../public/fonts/LXGWWenKaiTC-Regular.ttf", // 變更為 .ttf 副檔名
-  variable: "--font-lxgw", // 註冊為 CSS 變數
+// 💡 設定思源黑體
+const notoRead = Noto_Sans_TC({
+  weight: ["300", "400", "500", "700"], // 載入需要的字體粗細
+  subsets: ["latin"],
+  variable: "--font-noto", // 註冊為 CSS 變數
 });
 
 export const metadata: Metadata = {
@@ -13,30 +14,11 @@ export const metadata: Metadata = {
   description: "Yong Jie Ern 的個人網頁. 在這裏你可以找到他的資訊，及聯係方式。",
   keywords: ["web developer", "Next.js", "React", "automation", "n8n", "Yongg"],
   authors: [{ name: "Yong Jie Ern", url: "https://yongjern.xyz" }],
-  icons: {
-    icon: "/media/logo.png", 
-  },
-  
-  twitter: {
-    card: "summary", // 🌟 關鍵：設定為 "summary" 就會變成右側小縮圖。如果是 "summary_large_image" 就會是滿版大圖。
-    title: "Who are Yong Jie Ern?",
-    description: "查看關於 Yong 的資料!",
-    images: ["/media/logo.png"], // 縮圖直接吃你的圓形 Logo
-  },
-  
   openGraph: {
     title: "Who are Yong Jie Ern?",
     description: "查看關於 Yong 的資料!",
-    images: [
-      {
-        url: "/media/logo.png",
-        width: 512,
-        height: 512,
-        alt: "Yong's Logo",
-      },
-    ],
     url: "https://yongjern.xyz",
-    siteName: "你收到了來自 yongjern.xyz 的鏈接邀請!",
+    siteName: "Yongg's Portfolio",
     locale: "zh_TW",
     type: "website",
   },
@@ -47,8 +29,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // 💡 將字體變數掛在 html 上
-    <html lang="en" className={`${lxgwWenKai.variable} scroll-smooth`}>
+    // 💡 這裡改掛 notoRead.variable
+    <html lang="zh-TW" className={`${notoRead.variable} scroll-smooth`}>
       <body className="antialiased bg-aurora-base text-white overflow-x-hidden">
         {children}
       </body>
