@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Globe, Youtube, Github, Mail, ArrowUpRight } from "lucide-react";
 
 // ─── Social links — update hrefs as needed ────────────────────────────────────
-const socials = [
+const socialsZh = [
   {
     id: "youtube",
     label: "Yong.",
@@ -44,6 +44,45 @@ const socials = [
   },
 ];
 
+const socialsEn = [
+  {
+    id: "youtube",
+    label: "Yong.",
+    sublabel: "My YouTube channel for song covers.",
+    icon: Youtube,
+    href: "https://www.youtube.com/@jernyong",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,0,0,0.18)]",
+    iconColour: "text-red-400/70",
+  },
+  {
+    id: "website",
+    label: "yongjern.xyz",
+    sublabel: "My personal website and home for ongoing experiments.",
+    icon: Globe,
+    href: "https://yongjern.xyz",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(99,102,241,0.18)]",
+    iconColour: "text-indigo-300/70",
+  },
+  {
+    id: "github",
+    label: "@yongjern",
+    sublabel: "Code, prototypes, and things I am testing.",
+    icon: Github,
+    href: "https://github.com/yongjern",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]",
+    iconColour: "text-white/55",
+  },
+  {
+    id: "email",
+    label: "Email",
+    sublabel: "For formal enquiries and collaborations. I usually reply within seven working days.",
+    icon: Mail,
+    href: "mailto:jieernyong1207@gmail.com",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(20,184,166,0.18)]",
+    iconColour: "text-teal-300/70",
+  },
+];
+
 // ─── Animation variants ───────────────────────────────────────────────────────
 const containerVariants = {
   hidden: {},
@@ -59,9 +98,21 @@ const itemVariants = {
 };
 
 // ─── Component ───────────────────────────────────────────────────────────────
-export default function Contact() {
+export default function Contact({ locale = "zh" }: { locale?: "zh" | "en" }) {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const socials = locale === "en" ? socialsEn : socialsZh;
+  const copy = locale === "en"
+    ? {
+        eyebrow: "Contact and social platforms",
+        heading: "Here is where you can reach me.",
+        description: "Feel free to send a message. If I do not reply, I probably have not seen it yet.",
+      }
+    : {
+        eyebrow: "联系方式与社交平台",
+        heading: "你可以通过这些平台联系我。",
+        description: "欢迎随时私讯。如果没有回复，很可能只是我还没看到。",
+      };
 
   return (
     <section id="contact" className="py-24 md:py-36 px-6" ref={ref}>
@@ -75,13 +126,13 @@ export default function Contact() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            聯係方式 + 社交平臺
+            {copy.eyebrow}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            你可以在這些平臺聯係我!
+            {copy.heading}
           </h2>
           <p className="mt-3 text-white/40 text-sm max-w-md">
-           私訊我請不要感到負擔! Feel Free to DM! <br></br> 不回你只是單純沒看到而已!!!
+           {copy.description}
           </p>
         </motion.div>
 

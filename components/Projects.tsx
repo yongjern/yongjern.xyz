@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { ShoppingBag, Server, ExternalLink, Zap, Rss } from "lucide-react";
 
 // ─── Project data ────────────────────────────────────────────────────────────
-const projects = [
+const projectsZh = [
   {
     icon: ShoppingBag,
     eyebrow: "綫上商業 E-Commerce",
@@ -42,6 +42,42 @@ const projects = [
   },
 ];
 
+const projectsEn = [
+  {
+    icon: ShoppingBag,
+    eyebrow: "E-commerce",
+    title: "XPStore — Online top-up centre",
+    description:
+      "(2025–present) An online store for gamers offering affordable streaming subscriptions, direct game top-ups, and purchasing services. I previously built the website and handled payments and orders; the business is now being repositioned.",
+    tags: ["WordPress from scratch", "WooCommerce payments", "Discord community", "In transition"],
+    tagColor: "blue",
+    href: "https://example.com",
+    glowClass: "hover:shadow-glass-blue",
+  },
+  {
+    icon: Server,
+    eyebrow: "Personal infrastructure",
+    title: "yongjern.xyz",
+    description:
+      "My personal website and related sites. I may not have written every line from scratch, but I test, debug, and maintain everything that ships here. This description excludes the blog.",
+    tags: ["Vercel", "GitHub", "WordPress", "Personal website", "Domain management"],
+    tagColor: "teal",
+    href: "https://yongjern.xyz",
+    glowClass: "hover:shadow-glass-teal",
+  },
+  {
+    icon: Rss,
+    eyebrow: "Blog",
+    title: "Yong's Markdown",
+    description:
+      "A place for my writing on hands-on AI experiments, political commentary, and other ideas.",
+    tags: ["Writing", "Blog", "Next.js"],
+    tagColor: "teal",
+    href: "https://blog.yongjern.xyz",
+    glowClass: "hover:shadow-glass-teal",
+  },
+];
+
 // ─── Tag colour map ───────────────────────────────────────────────────────────
 const tagColours: Record<string, string> = {
   blue:   "bg-blue-500/[0.12]   text-blue-300/75   border-blue-400/[0.18]",
@@ -65,9 +101,21 @@ const cardVariants = {
 };
 
 // ─── Component ───────────────────────────────────────────────────────────────
-export default function Projects() {
+export default function Projects({ locale = "zh" }: { locale?: "zh" | "en" }) {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const projects = locale === "en" ? projectsEn : projectsZh;
+  const copy = locale === "en"
+    ? {
+        eyebrow: "Selected tech projects",
+        heading: "Things I have built and worked on.",
+        summary: "Technologies I have used in real projects:",
+      }
+    : {
+        eyebrow: "开发及参与项目",
+        heading: "这些是我打造和参与过的项目。",
+        summary: "我曾在实际项目中使用这些技术：",
+      };
 
   return (
     <section id="projects" className="py-24 md:py-36 px-6" ref={ref}>
@@ -81,10 +129,10 @@ export default function Projects() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-            開發及參與項目 (Tech)
+            {copy.eyebrow}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            這些都是我的寶貝!
+            {copy.heading}
           </h2>
         </motion.div>
 
@@ -163,7 +211,7 @@ export default function Projects() {
           </div>
           <div>
             <p className="text-sm font-medium text-white/70 mb-1">
-              我對以下東西有一點點基礎. 我都有實戰使用過他們 :
+              {copy.summary}
             </p>
             <p className="text-xs text-white/38 leading-relaxed">
               React · Next.js · Astro · WordPress · WooCommerce ·

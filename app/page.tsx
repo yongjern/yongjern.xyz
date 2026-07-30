@@ -3,7 +3,7 @@ import AuroraBackground from "@/components/AuroraBackground";
 import Navbar         from "@/components/Navbar";
 import Hero           from "@/components/Hero";
 import Projects       from "@/components/Projects";
-import Skills         from "@/components/Skills";
+import SkillsAndCertificates from "@/components/SkillsAndCertificates";
 import Resume         from "@/components/Resume";
 import Contact        from "@/components/Contact";
 
@@ -14,15 +14,15 @@ export default function Home() {
       <AuroraBackground />
 
       {/* Sticky navbar */}
-      <Navbar />
+      <Navbar locale="zh" />
 
       {/* Page content stacks above the aurora */}
       <main className="relative z-10">
-        <Hero />
-        <Projects />
-        <Skills />
-        <Resume />
-        <Contact />
+        <Hero locale="zh" />
+        <Projects locale="zh" />
+        <SkillsAndCertificates locale="zh" />
+        <Resume locale="zh" />
+        <Contact locale="zh" />
 
         {/* Footer */}
         <footer className="py-10 text-center text-white/25 text-sm">

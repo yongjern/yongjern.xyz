@@ -20,7 +20,23 @@ const itemVariants = {
   },
 };
 
-export default function Hero() {
+export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
+  const copy = locale === "en"
+    ? {
+        status: "Open to messages on major social platforms. I usually reply within seven days.",
+        bio: "I am exploring automation and generative AI, learning by building practical projects and experimenting with new tools.",
+        note: "Most of my projects are AI-assisted, backed by hands-on debugging and foundational JavaScript experience.",
+        resume: "View resume",
+        contact: "Contact me",
+      }
+    : {
+        status: "欢迎通过主流社交媒体联系，通常会在七天内回复。",
+        bio: "目前我对自动化 AI 与生成式 AI 很感兴趣，并持续通过实际项目探索和学习。",
+        note: "大部分项目由 AI 辅助完成，并由我亲自调试；我也具备基础 JavaScript 经验。",
+        resume: "查看简历",
+        contact: "联系我",
+      };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 text-center">
 
@@ -35,7 +51,7 @@ export default function Hero() {
         <motion.div variants={itemVariants}>
           <span className="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-sm text-white/60 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            歡迎使用主流社交媒體聯係! 7天内能回復就會回復! 
+            {copy.status}
           </span>
         </motion.div>
 
@@ -63,11 +79,10 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-xl text-white/52 leading-relaxed text-base md:text-lg mb-10"
         >
-          English Version? Click <a href="https://github.com/yongjern">here</a> to Github Profile Page.<br></br>目前個人對於自動化 AI, 生成式 AI 感興趣，但還是菜鳥。<br></br>
-          針對以上興趣歡迎查看我的項目及經驗
+          {copy.bio}
           <br />
           <span className="text-white/30 text-sm mt-1 inline-block">
-            大部分專案使用 AI 生成，擁有微微的 JavaScript 經驗。
+            {copy.note}
           </span>
         </motion.p>
 
@@ -80,13 +95,13 @@ export default function Hero() {
             href="#resume"
             className="glass-btn-primary px-7 py-3 rounded-xl text-sm font-medium text-white/90"
           >
-            查看簡歷 (CV)
+            {copy.resume}
           </a>
           <a
             href="#contact"
             className="glass-btn-secondary px-7 py-3 rounded-xl text-sm font-medium text-white/55 hover:text-white/80"
           >
-            聯係我
+            {copy.contact}
           </a>
         </motion.div>
 

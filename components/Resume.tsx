@@ -20,9 +20,26 @@ const CV_URL =
   "https://raw.githubusercontent.com/yongjern/yongjern/main/CV%20YJE.pdf";
 // ← REPLACE ABOVE URL when you have a permanent hosted link
 
-export default function Resume() {
+export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
   const ref    = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const copy = locale === "en"
+    ? {
+        eyebrow: "Resume",
+        heading: "Want the full picture?",
+        title: "My resume and a more detailed introduction",
+        description: "My learning experience and achievements are collected in this document. Download the PDF or open it in a new tab.",
+        download: "Download resume (.pdf)",
+        view: "View full resume",
+      }
+    : {
+        eyebrow: "我的简历",
+        heading: "想进一步了解我？",
+        title: "我的简历，也是一份更详细的自我介绍",
+        description: "学习经历与取得的成就都整理在这份文件中。你可以下载 PDF，或在新分页中查看。",
+        download: "下载简历 (.pdf)",
+        view: "查看完整简历",
+      };
 
   return (
     <section id="resume" className="py-24 md:py-36 px-6" ref={ref}>
@@ -36,10 +53,10 @@ export default function Resume() {
           className="mb-14"
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
-           我的簡歷
+           {copy.eyebrow}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
-            需要知道更多嗎? HERE:
+            {copy.heading}
           </h2>
         </motion.div>
 
@@ -59,10 +76,10 @@ export default function Resume() {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-white/88 mb-2 tracking-tight">
-                 我的簡歷 (或者算是更詳細的自我介紹)
+                 {copy.title}
                 </h3>
                 <p className="text-sm text-white/45 leading-relaxed max-w-sm">
-                  學習經驗，取得什麽成就，都在這個文件裏！<br></br> 點任何的按鈕都會讓你下載我的 CV, 我會在看如何搞定綫上預覽的部分!
+                  {copy.description}
                 </p>
               </div>
             </div>
@@ -80,7 +97,7 @@ export default function Resume() {
                            px-6 py-3 rounded-xl text-sm font-medium text-white/90"
               >
                 <Download size={15} />
-                下載我的簡歷 (.pdf)
+                {copy.download}
               </motion.a>
 
               {/* Secondary — view in new tab */}
@@ -94,7 +111,7 @@ export default function Resume() {
                            px-6 py-3 rounded-xl text-sm font-medium text-white/50
                            hover:text-white/75"
               >
-                查看完整的簡歷
+                {copy.view}
                 <ArrowUpRight size={14} />
               </motion.a>
 

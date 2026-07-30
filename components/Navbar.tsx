@@ -4,16 +4,26 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const links = [
-  { label: "⚡ · 項目",    href: "#projects" },
-  { label: "🔧 · 技能",  href: "#skills"   },
-  { label: "📂 · 簡歷",  href: "#resume"   },
-  { label: "💬 · 聯係方式", href: "#contact"  },
-];
+type Locale = "zh" | "en";
 
-export default function Navbar() {
+export default function Navbar({ locale = "zh" }: { locale?: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const links = locale === "en"
+    ? [
+        { label: "Projects", href: "#projects" },
+        { label: "Skills & certificates", href: "#skills" },
+        { label: "Resume", href: "#resume" },
+        { label: "Contact", href: "#contact" },
+      ]
+    : [
+        { label: "项目", href: "#projects" },
+        { label: "技能与证书", href: "#skills" },
+        { label: "简历", href: "#resume" },
+        { label: "联系方式", href: "#contact" },
+      ];
+  const languageHref = locale === "en" ? "/" : "/en";
+  const languageLabel = locale === "en" ? "中文" : "EN";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -65,6 +75,12 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={languageHref}
+              className="ml-2 px-3 py-1.5 rounded-lg border border-white/10 text-xs font-medium text-white/65 hover:text-white hover:bg-white/[0.06] transition-all"
+            >
+              {languageLabel}
+            </a>
           </nav>
 
           {/* Mobile hamburger */}
@@ -100,6 +116,12 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={languageHref}
+              className="mt-2 px-3 py-2.5 rounded-xl border border-white/10 text-sm text-white/65 hover:text-white hover:bg-white/[0.06] transition-all"
+            >
+              {languageLabel}
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
