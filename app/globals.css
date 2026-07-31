@@ -44,6 +44,11 @@ body {
   overflow-x: hidden;
 }
 
+main > section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* Custom text selection */
 ::selection {
   background: rgba(165, 180, 252, 0.30);
@@ -73,16 +78,25 @@ body {
   overflow: hidden;
   background: var(--color-base);
   pointer-events: none;
-  will-change: transform; /* GPU layer */
 }
 
 /* Individual blobs — styled here, animated via Tailwind keyframes */
 .aurora-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(64px);
   opacity: 0.38;
-  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .aurora-blob,
+  .text-gradient {
+    animation: none;
+  }
 }
 
 .aurora-blob-1 {
@@ -167,8 +181,8 @@ body {
 /* Base glass card */
 .glass-card {
   background: var(--color-glass-bg);
-  backdrop-filter: blur(48px) saturate(160%);
-  -webkit-backdrop-filter: blur(48px) saturate(160%);
+  backdrop-filter: blur(32px) saturate(150%);
+  -webkit-backdrop-filter: blur(32px) saturate(150%);
   border: 1px solid var(--color-glass-border);
   /* Top-edge highlight simulates the glass bevel refraction */
   box-shadow:
@@ -180,8 +194,8 @@ body {
 /* Deeper glass for prominent panels */
 .glass-panel {
   background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(64px) saturate(180%);
-  -webkit-backdrop-filter: blur(64px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(165%);
+  -webkit-backdrop-filter: blur(40px) saturate(165%);
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.55),
@@ -270,6 +284,23 @@ body {
     0 8px 28px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transform: translateY(-3px);
+}
+
+@media (max-width: 767px) {
+  .aurora-blob {
+    filter: blur(42px);
+    animation: none;
+  }
+
+  .aurora-noise {
+    display: none;
+  }
+
+  .glass-card,
+  .glass-panel {
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+  }
 }
 
 /* ─────────────────────────────────────────

@@ -1,5 +1,3 @@
-"use client";
-
 // AuroraBackground.tsx
 // Renders four desaturated radial blobs that slowly drift behind all content.
 // Colours: midnight indigo · deep violet · dark teal · dusty purple
