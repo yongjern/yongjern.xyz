@@ -16,9 +16,10 @@ import { FileText, Download, ArrowUpRight } from "lucide-react";
 //    Option C: host the PDF on your own domain, e.g.
 //      https://yongjern.xyz/CV_YJE.pdf
 // ────────────────────────────────────────────────────────────────────────────
-const CV_URL =
+const CV_DOWNLOAD_URL =
   "https://raw.githubusercontent.com/yongjern/yongjern/main/CV%20YJE.pdf";
-// ← REPLACE ABOVE URL when you have a permanent hosted link
+const CV_URL = "https://yongjern.xyz/media/CV%20YJE.pdf"
+  // ← REPLACE ABOVE URL when you have a permanent hosted link
 
 export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
   const ref    = useRef<HTMLDivElement>(null);
@@ -89,7 +90,7 @@ export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
 
               {/* Primary — download */}
               <motion.a
-                href={CV_URL}
+                href={CV_DOWNLOAD_URL}
                 download
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
