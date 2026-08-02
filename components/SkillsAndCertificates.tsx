@@ -66,6 +66,13 @@ const certificates = [
    credentialId: "avp6rord4y",
    href: "https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y"
   },
+  {
+  title: "AI For MY Future",
+  issuer: "Microsoft & Pepper Labs",
+  issued: "2026-08-02",
+  credentialId: "gbzahami2c",
+  href: "https://pepper-s-site-1c7b.thinkific.com/certificates/gbzahami2c"
+ },
 ];
 // https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y
 const pillColour: Record<string, string> = {
