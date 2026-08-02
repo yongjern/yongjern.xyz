@@ -15,12 +15,14 @@ export default function Navbar({ locale = "zh" }: { locale?: Locale }) {
         { label: "Skills & certificates", href: "#skills" },
         { label: "Resume", href: "#resume" },
         { label: "Contact", href: "#contact" },
+        { label: "Book A Time", href: "/booking" },
       ]
     : [
         { label: "项目", href: "#projects" },
         { label: "技能与证书", href: "#skills" },
         { label: "简历", href: "#resume" },
         { label: "联系方式", href: "#contact" },
+        { label: "預約一個時間", href: "/booking" },
       ];
   const languageHref = locale === "en" ? "/" : "/en";
   const languageLabel = locale === "en" ? "中文" : "EN";
