@@ -59,8 +59,15 @@ const certificates = [
     credentialId: "7a8b06",
     href: "https://canva.com/designschool/certification-award/7a8b0685-4e8c-403b-8ad2-d5fef58763a8",
   },
+  {
+   title: "AI Ready Malaysia: Edisi Pelajar",
+   issuer: "Pepper Labs & AVPN (Supported by Google.org & ADB)",
+   issued: "2026-08-02",
+   credentialId: "avp6rord4y",
+   href: "https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y"
+  },
 ];
-
+// https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y
 const pillColour: Record<string, string> = {
   blue: "bg-blue-500/[0.10] text-blue-300/70 border-blue-400/[0.16]",
   purple: "bg-purple-500/[0.10] text-purple-300/70 border-purple-400/[0.16]",
