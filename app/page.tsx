@@ -20,7 +20,7 @@ export default function Home() {
       <main className="relative z-10">
         <Hero locale="zh" />
         <Projects locale="zh" />
-        <SkillsAndCertificates locale="zh" />
+        <SkillsAndCertificates locale="zh" certificateLimit={5} />
         <Resume locale="zh" />
         <Contact locale="zh" />
 

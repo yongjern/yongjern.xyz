@@ -12,14 +12,16 @@ export default function Navbar({ locale = "zh" }: { locale?: Locale }) {
   const links = locale === "en"
     ? [
         { label: "Projects", href: "#projects" },
-        { label: "Skills & certificates", href: "#skills" },
+        { label: "Skills", href: "#skills" },
+        { label: "Certificates", href: "/en/certificates" },
         { label: "Resume", href: "#resume" },
         { label: "Contact", href: "#contact" },
         { label: "Book A Time", href: "/booking" },
       ]
     : [
         { label: "项目", href: "#projects" },
-        { label: "技能与证书", href: "#skills" },
+        { label: "技能", href: "#skills" },
+        { label: "证书", href: "/certificates" },
         { label: "简历", href: "#resume" },
         { label: "联系方式", href: "#contact" },
         { label: "預約一個時間", href: "/booking" },

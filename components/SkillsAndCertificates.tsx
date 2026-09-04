@@ -29,7 +29,7 @@ const skillCategories = [
   },
 ];
 
-const certificates = [
+export const certificates = [
   {
     title: "Pengenalan kepada Kecerdasan Buatan via Rakyat Digital portal",
     issuer: "Ministry of Digital Malaysia",
@@ -103,7 +103,11 @@ const cardVariants = {
   },
 };
 
-export default function SkillsAndCertificates({ locale = "zh" }: { locale?: Locale }) {
+export default function SkillsAndCertificates({
+  locale = "zh",
+  certificatesOnly = false,
+  certificateLimit,
+}: { locale?: Locale; certificatesOnly?: boolean; certificateLimit?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const copy = locale === "en"
@@ -127,9 +131,9 @@ export default function SkillsAndCertificates({ locale = "zh" }: { locale?: Loca
       };
 
   return (
-    <section id="skills" className="py-24 md:py-36 px-6" ref={ref}>
+    <section id={certificatesOnly ? "certificates" : "skills"} className="py-24 md:py-36 px-6" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <motion.div
+        {!certificatesOnly && <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -137,9 +141,9 @@ export default function SkillsAndCertificates({ locale = "zh" }: { locale?: Loca
         >
           <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">{copy.eyebrow}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">{copy.heading}</h2>
-        </motion.div>
+        </motion.div>}
 
-        <motion.div
+        {!certificatesOnly && <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -167,7 +171,7 @@ export default function SkillsAndCertificates({ locale = "zh" }: { locale?: Loca
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div>}
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -185,7 +189,7 @@ export default function SkillsAndCertificates({ locale = "zh" }: { locale?: Loca
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          {certificates.map((certificate) => (
+          {certificates.slice(0, certificateLimit).map((certificate) => (
             <motion.article
               key={certificate.credentialId}
               variants={cardVariants}
