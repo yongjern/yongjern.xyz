@@ -36,7 +36,7 @@ export default function EnglishHome() {
       <main lang="en" className="relative z-10">
         <Hero locale="en" />
         <Projects locale="en" />
-        <SkillsAndCertificates locale="en" certificateLimit={5} />
+        <SkillsAndCertificates locale="en" featuredOnly certificateLimit={5} />
         <Resume locale="en" />
         <Contact locale="en" />
 

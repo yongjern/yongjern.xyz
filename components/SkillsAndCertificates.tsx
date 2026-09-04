@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, FileText } from "lucide-react";
 
 type Locale = "zh" | "en";
 
@@ -34,6 +34,7 @@ export const certificates = [
     title: "Pengenalan kepada Kecerdasan Buatan via Rakyat Digital portal",
     issuer: "Ministry of Digital Malaysia",
     issued: "Jul 2026",
+    featured: true,
     credentialId: "U2FsdGVkX1s1L2a3S4h9zkT8IaraTs2gl8CL4gzqpjtJTfXJp1L2u3SDoe1Q2u3A4l",
     href: "https://portal.rakyatdigital.gov.my/#/badge?id=U2FsdGVkX1s1L2a3S4h9zkT8IaraTs2gl8CL4gzqpjtJTfXJp1L2u3SDoe1Q2u3A4l",
   },
@@ -41,6 +42,7 @@ export const certificates = [
     title: "Pengenalan kepada Kecerdasan Buatan via Rakyat Digital portal",
     issuer: "Ministry of Digital Malaysia",
     issued: "Jul 2026",
+    featured: true,
     credentialId: "U2FsdGVkX19Ajcu7SmvVqCmjVp1L2u3Ss1L2a3S4hpfBSpp1L2u3Sv39HwrTKx0e1Q2u3A4l",
     href: "https://portal.rakyatdigital.gov.my/#/badge?id=U2FsdGVkX19Ajcu7SmvVqCmjVp1L2u3Ss1L2a3S4hpfBSpp1L2u3Sv39HwrTKx0e1Q2u3A4l",
   },
@@ -49,6 +51,7 @@ export const certificates = [
     issuer: "Google for Education",
     issued: "Oct 2025",
     expires: "Oct 2028",
+    featured: true,
     credentialId: "164362978",
     href: "https://edu.google.accredible.com/d1199c6b-b9d6-40e9-bc53-3aca35701b24",
   },
@@ -63,6 +66,7 @@ export const certificates = [
    title: "AI Ready Malaysia: Edisi Pelajar",
    issuer: "Pepper Labs & AVPN (Supported by Google.org & ADB)",
    issued: "2026-08-02",
+  featured: true,
    credentialId: "avp6rord4y",
    href: "https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y"
   },
@@ -70,10 +74,38 @@ export const certificates = [
   title: "AI For MY Future",
   issuer: "Microsoft & Pepper Labs",
   issued: "2026-08-02",
+  featured: true,
   credentialId: "gbzahami2c",
   href: "https://pepper-s-site-1c7b.thinkific.com/certificates/gbzahami2c"
  },
+ {
+  title: "Cybersecurity Fundamentals",
+  issuer: "Yong Jie Ern",
+  issued: "2026",
+  credentialId: "cybersecurity",
+  href: "/certificate/cybersecurity.pdf",
+ },
 ];
+
+const localCertificates = [
+  ["generative-ai.pdf", "Generative AI", true],
+  ["agentic-ai-for-all.pdf", "Agentic AI for All", true],
+  ["ai-nation-2030.pdf", "AI Nation 2030", true],
+  ["ai-safety.pdf", "AI Safety", true],
+  ["ai-untuk-rakyat.pdf", "AI Untuk Rakyat", true],
+  ["cloud-untuk-rakyat.pdf", "Cloud Untuk Rakyat", false],
+  ["cybersecurity.pdf", "Cybersecurity", false],
+].map(([file, title, featured]) => ({
+  certificateFile: `/certificate/${file}`,
+  title,
+  issuer: "Certificate PDF",
+  issued: "2026",
+  credentialId: file,
+  href: `/certificate/${file}`,
+  featured,
+}));
+
+const allCertificates = [...localCertificates, ...certificates];
 // https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y
 const pillColour: Record<string, string> = {
   blue: "bg-blue-500/[0.10] text-blue-300/70 border-blue-400/[0.16]",
@@ -106,8 +138,9 @@ const cardVariants = {
 export default function SkillsAndCertificates({
   locale = "zh",
   certificatesOnly = false,
+  featuredOnly = false,
   certificateLimit,
-}: { locale?: Locale; certificatesOnly?: boolean; certificateLimit?: number }) {
+}: { locale?: Locale; certificatesOnly?: boolean; featuredOnly?: boolean; certificateLimit?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const copy = locale === "en"
@@ -119,6 +152,7 @@ export default function SkillsAndCertificates({
         expires: "Expires",
         credential: "Credential ID",
         show: "Show credential",
+        viewFile: "View certificate",
       }
     : {
         eyebrow: "技能与证书",
@@ -128,6 +162,7 @@ export default function SkillsAndCertificates({
         expires: "有效期至",
         credential: "证书编号",
         show: "查看证书",
+        viewFile: "查看证书文件",
       };
 
   return (
@@ -189,7 +224,10 @@ export default function SkillsAndCertificates({
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          {certificates.slice(0, certificateLimit).map((certificate) => (
+          {allCertificates
+            .filter((certificate) => !featuredOnly || certificate.featured)
+            .slice(0, certificateLimit)
+            .map((certificate) => (
             <motion.article
               key={certificate.credentialId}
               variants={cardVariants}
@@ -209,6 +247,18 @@ export default function SkillsAndCertificates({
                 <p>{copy.issued} {certificate.issued}{certificate.expires ? ` · ${copy.expires} ${certificate.expires}` : ""}</p>
                 <p className="mt-2 break-all">{copy.credential}: {certificate.credentialId}</p>
               </div>
+
+              {certificate.certificateFile && (
+                <a
+                  href={certificate.certificateFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 text-sm text-white/65 hover:text-white transition-colors"
+                >
+                  <FileText size={14} />
+                  {copy.viewFile}
+                </a>
+              )}
 
               <a
                 href={certificate.href}
