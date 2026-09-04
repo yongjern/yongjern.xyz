@@ -78,24 +78,17 @@ export const certificates = [
   credentialId: "gbzahami2c",
   href: "https://pepper-s-site-1c7b.thinkific.com/certificates/gbzahami2c"
  },
- {
-  title: "Cybersecurity Fundamentals",
-  issuer: "Yong Jie Ern",
-  issued: "2026",
-  credentialId: "cybersecurity",
-  href: "/certificate/cybersecurity.pdf",
- },
 ];
 
 const localCertificates = [
-  ["generative-ai.pdf", "Generative AI", true],
-  ["agentic-ai-for-all.pdf", "Agentic AI for All", true],
-  ["ai-nation-2030.pdf", "AI Nation 2030", true],
-  ["ai-safety.pdf", "AI Safety", true],
-  ["ai-untuk-rakyat.pdf", "AI Untuk Rakyat", true],
-  ["cloud-untuk-rakyat.pdf", "Cloud Untuk Rakyat", false],
-  ["cybersecurity.pdf", "Cybersecurity", false],
- ] as const).map(([file, title, featured]) => ({
+  { file: "generative-ai.pdf", title: "Generative AI", featured: true },
+  { file: "agentic-ai-for-all.pdf", title: "Agentic AI for All", featured: true },
+  { file: "ai-nation-2030.pdf", title: "AI Nation 2030", featured: true },
+  { file: "ai-safety.pdf", title: "AI Safety", featured: true },
+  { file: "ai-untuk-rakyat.pdf", title: "AI Untuk Rakyat", featured: true },
+  { file: "cloud-untuk-rakyat.pdf", title: "Cloud Untuk Rakyat", featured: false },
+  { file: "cybersecurity.pdf", title: "Cybersecurity", featured: false },
+].map(({ file, title, featured }) => ({
   certificateFile: `/certificate/${file}`,
   title,
   issuer: "Certificate PDF",
