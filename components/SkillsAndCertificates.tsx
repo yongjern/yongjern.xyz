@@ -95,7 +95,7 @@ const localCertificates = [
   ["ai-untuk-rakyat.pdf", "AI Untuk Rakyat", true],
   ["cloud-untuk-rakyat.pdf", "Cloud Untuk Rakyat", false],
   ["cybersecurity.pdf", "Cybersecurity", false],
-].map(([file, title, featured]) => ({
+ ] as const).map(([file, title, featured]) => ({
   certificateFile: `/certificate/${file}`,
   title,
   issuer: "Certificate PDF",
