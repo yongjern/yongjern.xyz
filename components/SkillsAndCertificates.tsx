@@ -93,6 +93,7 @@ const localCertificates = [
   title,
   issuer: "Certificate PDF",
   issued: "2026",
+  expires: undefined,
   credentialId: file,
   href: `/certificate/${file}`,
   featured,
