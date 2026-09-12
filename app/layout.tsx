@@ -10,10 +10,16 @@ const notoRead = Noto_Sans_TC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yongjern.xyz"),
   title: "yongjern.xyz · 歡迎光臨 Yong 的主頁",
   description: "Yong Jie Ern 的個人網頁. 在這裏你可以找到他的資訊，及聯係方式。",
   keywords: ["web developer", "Next.js", "React", "automation", "n8n", "Yongg"],
   authors: [{ name: "Yong Jie Ern", url: "https://yongjern.xyz" }],
+  icons: {
+    icon: "/media/logo.png",
+    shortcut: "/media/logo.png",
+    apple: "/media/logo.png",
+  },
   openGraph: {
     title: "Who are Yong Jie Ern?",
     description: "查看關於 Yong 的資料!",
