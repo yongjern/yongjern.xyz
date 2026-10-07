@@ -2,20 +2,20 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ShoppingBag, Server, ExternalLink, Zap, Rss } from "lucide-react";
+import { Gauge, Server, ExternalLink, Zap, Rss } from "lucide-react";
 
 // ─── Project data ────────────────────────────────────────────────────────────
 const projectsZh = [
   {
-    icon: ShoppingBag,
-    eyebrow: "綫上商業 E-Commerce",
-    title: "XPStore — 一站式綫上充值中心",
+    icon: Gauge,
+    eyebrow: "一站式大學網站",
+    title: "MyUMK — 一個整合學生課表，巴士時刻，及快速連接的一站式 Dashboard",
     description:
-      "(2025-NOW) 一個專門為綫上玩家打造的軍火庫！有便宜的串流服務，游戲直充服務，及綫上代購服務等。在之前專門搭建網站，處理金流及訂單。目前正在進行轉型計劃。",
+      "目前暫時作爲個人網站使用。您可以透過以下網址來進入試用版本。",
     tags: ["Wordpress (從0開始架設)", "WooCommerce (國際/國内金流處理)", "Discord社群架設", "轉型中"],
     tagColor: "blue",
     // ── Replace with your live XPStore URL ──────────────────────────────────
-    href: "https://example.com",
+    href: "https://myumnk.yongjern.xyz",
     glowClass: "hover:shadow-glass-blue",
   },
   {
@@ -44,14 +44,14 @@ const projectsZh = [
 
 const projectsEn = [
   {
-    icon: ShoppingBag,
-    eyebrow: "E-commerce",
-    title: "XPStore — Online top-up centre",
+    icon: Gauge,
+    eyebrow: "University Dashboard",
+    title: "MYUMK",
     description:
-      "(2025–present) An online store for gamers offering affordable streaming subscriptions, direct game top-ups, and purchasing services. I previously built the website and handled payments and orders; the business is now being repositioned.",
+      "A web application for Universiti Malaysia Kelantan (UMK) with bus schedule, timetable, and quick access links",
     tags: ["WordPress from scratch", "WooCommerce payments", "Discord community", "In transition"],
     tagColor: "blue",
-    href: "https://example.com",
+    href: "https://myumk.yongjern.xyz",
     glowClass: "hover:shadow-glass-blue",
   },
   {
