@@ -7,6 +7,10 @@
     font-family: var(--font-noto), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   }
 }
+
+.hero-name {
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif !important;
+}
 /* ─────────────────────────────────────────
    CSS CUSTOM PROPERTIES
 ───────────────────────────────────────── */
