@@ -20,12 +20,12 @@ export default function Home() {
       <main className="relative z-10">
         <Hero locale="zh" />
         <Projects locale="zh" />
-        <SkillsAndCertificates locale="zh" featuredOnly certificateLimit={5} />
+        <SkillsAndCertificates locale="zh" featuredOnly certificateLimit={3} />
         <Resume locale="zh" />
         <Contact locale="zh" />
 
         {/* Footer */}
-        <footer className="py-10 text-center text-white/25 text-sm">
+        <footer className="py-10 text-center text-white/55 text-sm">
           <div className="section-divider mb-8 max-w-2xl mx-auto" />
           <p>
             © {new Date().getFullYear()} Yong Jie Ern.

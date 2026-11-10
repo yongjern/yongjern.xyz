@@ -16,7 +16,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -24,21 +24,21 @@ export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
   const copy = locale === "en"
     ? {
         status: "Open to messages on major social platforms. I usually reply within seven days.",
-        bio: "I am exploring automation and generative AI, learning by building practical projects and experimenting with new tools.",
-        note: "Most of my projects are AI-assisted, backed by hands-on debugging and foundational JavaScript experience.",
+        bio: "I explore AI automation and generative AI by building practical digital products.",
+        note: "I use AI to accelerate development while personally handling requirements, integration, testing, and debugging.",
         resume: "View resume",
         contact: "Contact me",
       }
     : {
-        status: "欢迎通过主流社交媒体联系，通常会在七天内回复。",
-        bio: "目前我对自动化 AI 与生成式 AI 很感兴趣，并持续通过实际项目探索和学习。",
-        note: "大部分项目由 AI 辅助完成，并由我亲自调试；我也具备基础 JavaScript 经验。",
-        resume: "查看简历",
-        contact: "联系我",
+        status: "歡迎透過社群平台聯絡，我通常會在七天內回覆。",
+        bio: "我透過實際產品探索 AI 自動化與生成式 AI。",
+        note: "我使用 AI 加速開發，並親自負責需求拆解、整合、測試與除錯。",
+        resume: "查看履歷",
+        contact: "聯絡我",
       };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 text-center">
+    <section className="relative min-h-[92svh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-20 text-center">
 
       <motion.div
         variants={containerVariants}
@@ -49,7 +49,7 @@ export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
 
         {/* Status badge */}
         <motion.div variants={itemVariants}>
-          <span className="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-sm text-white/60 mb-8">
+          <span className="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-sm text-white/75 mb-7 md:mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {copy.status}
           </span>
@@ -69,19 +69,19 @@ export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
         <motion.p
           variants={itemVariants}
           className="text-lg sm:text-xl md:text-2xl font-light
-                     tracking-widest uppercase text-white/38 mb-7"
+                     tracking-widest uppercase text-white/65 mb-7"
         >
-          Student &amp; Freelance
+          Student &amp; Freelancer
         </motion.p>
 
         {/* Bio */}
         <motion.p
           variants={itemVariants}
-          className="max-w-xl text-white/52 leading-relaxed text-base md:text-lg mb-10"
+          className="max-w-xl text-white/75 leading-relaxed text-base md:text-lg mb-9 md:mb-10"
         >
           {copy.bio}
           <br />
-          <span className="text-white/30 text-sm mt-1 inline-block">
+          <span className="text-white/60 text-sm mt-2 inline-block">
             {copy.note}
           </span>
         </motion.p>
@@ -99,7 +99,7 @@ export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
           </a>
           <a
             href="#contact"
-            className="glass-btn-secondary px-7 py-3 rounded-xl text-sm font-medium text-white/55 hover:text-white/80"
+            className="glass-btn-secondary px-7 py-3 rounded-xl text-sm font-medium text-white/75 hover:text-white"
           >
             {copy.contact}
           </a>

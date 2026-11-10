@@ -8,24 +8,36 @@ type Locale = "zh" | "en";
 
 const skillCategories = [
   {
-    label: { zh: "熟练使用的 AI 工具", en: "AI tools I use confidently" },
+    label: { zh: "AI 與自動化工作流", en: "AI and automation workflows" },
     colour: "blue",
-    skills: ["Gemini (Flash/Pro)", "Claude Opus", "Meta AI", "Manus AI", "GitHub Copilot", "ChatGPT"],
+    skills: {
+      zh: ["提示設計", "AI 輔助研究", "工作流原型", "工具評估", "驗證與除錯"],
+      en: ["Prompt design", "AI-assisted research", "Workflow prototyping", "Tool evaluation", "Verification & debugging"],
+    },
   },
   {
-    label: { zh: "办公与创作软件", en: "Productivity and creative tools" },
+    label: { zh: "內容與生產力", en: "Content and productivity" },
     colour: "purple",
-    skills: ["Word", "PowerPoint", "Microsoft Office", "Google Forms", "CapCut", "Canva"],
+    skills: {
+      zh: ["文件編排", "簡報設計", "表單設計", "影片剪輯", "視覺設計"],
+      en: ["Document design", "Presentations", "Form design", "Video editing", "Visual design"],
+    },
   },
   {
-    label: { zh: "娱乐与人际技能", en: "Creative and people skills" },
+    label: { zh: "創意與人際技能", en: "Creative and people skills" },
     colour: "teal",
-    skills: ["Singing", "Comedy", "Active Listening", "Peer Support"],
+    skills: {
+      zh: ["歌唱", "喜劇", "積極聆聽", "同儕支持"],
+      en: ["Singing", "Comedy", "Active listening", "Peer support"],
+    },
   },
   {
-    label: { zh: "基础技术知识", en: "Technical foundations" },
+    label: { zh: "技術基礎", en: "Technical foundations" },
     colour: "indigo",
-    skills: ["HTML", "JavaScript", "CSS", "Markdown", "Minecraft Server Config"],
+    skills: {
+      zh: ["HTML", "CSS", "JavaScript", "Next.js", "Markdown"],
+      en: ["HTML", "CSS", "JavaScript", "Next.js", "Markdown"],
+    },
   },
 ];
 
@@ -109,10 +121,10 @@ const localCertificates = [
 const allCertificates = [...localCertificates, ...certificates];
 // https://pepper-s-site-1c7b.thinkific.com/certificates/avp6rord4y
 const pillColour: Record<string, string> = {
-  blue: "bg-blue-500/[0.10] text-blue-300/70 border-blue-400/[0.16]",
-  purple: "bg-purple-500/[0.10] text-purple-300/70 border-purple-400/[0.16]",
-  teal: "bg-teal-500/[0.10] text-teal-300/70 border-teal-400/[0.16]",
-  indigo: "bg-indigo-500/[0.10] text-indigo-300/70 border-indigo-400/[0.16]",
+  blue: "bg-blue-500/[0.14] text-blue-200/90 border-blue-300/[0.26]",
+  purple: "bg-purple-500/[0.14] text-purple-200/90 border-purple-300/[0.26]",
+  teal: "bg-teal-500/[0.14] text-teal-200/90 border-teal-300/[0.26]",
+  indigo: "bg-indigo-500/[0.14] text-indigo-200/90 border-indigo-300/[0.26]",
 };
 
 const dotColour: Record<string, string> = {
@@ -132,7 +144,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -154,16 +166,18 @@ export default function SkillsAndCertificates({
         credential: "Credential ID",
         show: "Show credential",
         viewFile: "View certificate",
+        viewAll: "View all certificates",
       }
     : {
-        eyebrow: "技能与证书",
-        heading: "我的技能点，以及一路取得的认证。",
-        certificates: "执照与证书",
-        issued: "颁发于",
+        eyebrow: "技能與證書",
+        heading: "我的實作能力，以及一路取得的認證。",
+        certificates: "證書與認證",
+        issued: "頒發於",
         expires: "有效期至",
-        credential: "证书编号",
-        show: "查看证书",
-        viewFile: "查看证书文件",
+        credential: "證書編號",
+        show: "查看證書",
+        viewFile: "查看證書文件",
+        viewAll: "查看所有證書",
       };
 
   return (
@@ -175,7 +189,7 @@ export default function SkillsAndCertificates({
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">{copy.eyebrow}</p>
+          <p className="text-xs tracking-[0.2em] uppercase text-white/55 mb-3">{copy.eyebrow}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">{copy.heading}</h2>
         </motion.div>}
 
@@ -194,12 +208,12 @@ export default function SkillsAndCertificates({
             >
               <div className="flex items-center gap-2.5">
                 <span className={`w-2 h-2 rounded-full ${dotColour[category.colour]}`} />
-                <p className="text-xs tracking-widest uppercase text-white/40 font-medium">
+                <p className="text-xs tracking-widest uppercase text-white/65 font-medium">
                   {category.label[locale]}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
+                {category.skills[locale].map((skill) => (
                   <span key={skill} className={`text-xs px-3 py-1 rounded-full border ${pillColour[category.colour]}`}>
                     {skill}
                   </span>
@@ -237,16 +251,18 @@ export default function SkillsAndCertificates({
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h4 className="text-base font-semibold text-white/85 leading-snug">{certificate.title}</h4>
-                  <p className="mt-1.5 text-sm text-white/50">{certificate.issuer}</p>
+                  <p className="mt-1.5 text-sm text-white/65">{certificate.issuer}</p>
                 </div>
                 <div className="p-2.5 rounded-xl glass-pill shrink-0">
                   <Award size={18} className="text-amber-300/65" />
                 </div>
               </div>
 
-              <div className="text-xs text-white/38 leading-relaxed">
+              <div className="text-xs text-white/60 leading-relaxed">
                 <p>{copy.issued} {certificate.issued}{certificate.expires ? ` · ${copy.expires} ${certificate.expires}` : ""}</p>
-                <p className="mt-2 break-all">{copy.credential}: {certificate.credentialId}</p>
+                {!certificate.certificateFile && (
+                  <p className="mt-2 break-all">{copy.credential}: {certificate.credentialId}</p>
+                )}
               </div>
 
               {certificate.certificateFile && (
@@ -273,6 +289,23 @@ export default function SkillsAndCertificates({
             </motion.article>
           ))}
         </motion.div>
+
+        {featuredOnly && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.45, duration: 0.6 }}
+            className="mt-8 flex justify-center"
+          >
+            <a
+              href={locale === "en" ? "/en/certificates" : "/certificates"}
+              className="glass-btn-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium text-white/80 hover:text-white"
+            >
+              {copy.viewAll}
+              <ExternalLink size={14} />
+            </a>
+          </motion.div>
+        )}
       </div>
     </section>
   );

@@ -24,6 +24,20 @@ export const metadata: Metadata = {
     siteName: "Yong Jie Ern's Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/media/logopic.png",
+        width: 1024,
+        height: 1024,
+        alt: "Yong Jie Ern",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yong Jie Ern · Portfolio",
+    description: "Explore Yong Jie Ern's projects, skills, certifications, and experience.",
+    images: ["/media/logopic.png"],
   },
 };
 
@@ -36,11 +50,11 @@ export default function EnglishHome() {
       <main lang="en" className="relative z-10">
         <Hero locale="en" />
         <Projects locale="en" />
-        <SkillsAndCertificates locale="en" featuredOnly certificateLimit={5} />
+        <SkillsAndCertificates locale="en" featuredOnly certificateLimit={3} />
         <Resume locale="en" />
         <Contact locale="en" />
 
-        <footer className="py-10 text-center text-white/25 text-sm">
+        <footer className="py-10 text-center text-white/55 text-sm">
           <div className="section-divider mb-8 max-w-2xl mx-auto" />
           <p>
             © {new Date().getFullYear()} Yong Jie Ern. Built with Next.js &amp; Tailwind CSS.

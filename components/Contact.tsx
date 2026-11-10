@@ -2,32 +2,23 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Globe, Youtube, Github, Mail, ArrowUpRight } from "lucide-react";
+import { Youtube, Github, Mail, ArrowUpRight } from "lucide-react";
 
 // ─── Social links — update hrefs as needed ────────────────────────────────────
 const socialsZh = [
   {
     id: "youtube",
     label: "Yong.",
-    sublabel: "一個執著於翻唱的 Youtube 頻道.",
+    sublabel: "分享歌曲翻唱的 YouTube 頻道。",
     icon: Youtube,
     href: "https://www.youtube.com/@jernyong",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,0,0,0.18)]",
     iconColour: "text-red-400/70",
   },
   {
-    id: "website",
-    label: "yongjern.xyz",
-    sublabel: "個人網站. 但你沒辦法在這邊聯係我就是了!",
-    icon: Globe,
-    href: "https://yongjern.xyz",
-    hoverGlow: "hover:shadow-[0_8px_30px_rgba(99,102,241,0.18)]",
-    iconColour: "text-indigo-300/70",
-  },
-  {
     id: "github",
     label: "@yongjern",
-    sublabel: "我的 Github 網頁. 裏面不會放寶藏，裏面只是實驗品而已.",
+    sublabel: "查看我的程式碼、原型與開發實驗。",
     icon: Github,
     href: "https://github.com/yongjern",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]",
@@ -35,8 +26,8 @@ const socialsZh = [
   },
   {
     id: "email",
-    label: "Email 聯係",
-    sublabel: "正式商業合作請走這邊! 我們會在7個工作日内回答各位的 Email.",
+    label: "Email 聯絡",
+    sublabel: "適合正式詢問與合作邀請，通常會在七個工作日內回覆。",
     icon: Mail,
     href: "mailto:jieernyong1207@gmail.com",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(20,184,166,0.18)]",
@@ -53,15 +44,6 @@ const socialsEn = [
     href: "https://www.youtube.com/@jernyong",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(255,0,0,0.18)]",
     iconColour: "text-red-400/70",
-  },
-  {
-    id: "website",
-    label: "yongjern.xyz",
-    sublabel: "My personal website and home for ongoing experiments.",
-    icon: Globe,
-    href: "https://yongjern.xyz",
-    hoverGlow: "hover:shadow-[0_8px_30px_rgba(99,102,241,0.18)]",
-    iconColour: "text-indigo-300/70",
   },
   {
     id: "github",
@@ -93,7 +75,7 @@ const itemVariants = {
   hidden:  { opacity: 0, y: 24, scale: 0.97 },
   visible: {
     opacity: 1, y: 0, scale: 1,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -109,9 +91,9 @@ export default function Contact({ locale = "zh" }: { locale?: "zh" | "en" }) {
         description: "Feel free to send a message. If I do not reply, I probably have not seen it yet.",
       }
     : {
-        eyebrow: "联系方式与社交平台",
-        heading: "你可以通过这些平台联系我。",
-        description: "欢迎随时私讯。如果没有回复，很可能只是我还没看到。",
+        eyebrow: "聯絡方式與社群平台",
+        heading: "你可以透過這些平台聯絡我。",
+        description: "歡迎傳送訊息；如果我尚未回覆，可能只是還沒有看到。",
       };
 
   return (
@@ -125,13 +107,13 @@ export default function Contact({ locale = "zh" }: { locale?: "zh" | "en" }) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
+          <p className="text-xs tracking-[0.2em] uppercase text-white/55 mb-3">
             {copy.eyebrow}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
             {copy.heading}
           </h2>
-          <p className="mt-3 text-white/40 text-sm max-w-md">
+          <p className="mt-3 text-white/65 text-sm max-w-md">
            {copy.description}
           </p>
         </motion.div>
@@ -141,7 +123,7 @@ export default function Contact({ locale = "zh" }: { locale?: "zh" | "en" }) {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4"
         >
           {socials.map((s) => {
             const Icon = s.icon;
@@ -166,16 +148,16 @@ export default function Contact({ locale = "zh" }: { locale?: "zh" | "en" }) {
                   </div>
                   <ArrowUpRight
                     size={14}
-                    className="text-white/20 group-hover:text-white/45 transition-colors mt-0.5"
+                    className="text-white/50 group-hover:text-white/85 transition-colors mt-0.5"
                   />
                 </div>
 
                 {/* Labels */}
                 <div>
-                  <p className="text-sm font-semibold text-white/75 mb-0.5 tracking-tight">
+                  <p className="text-sm font-semibold text-white/90 mb-0.5 tracking-tight">
                     {s.label}
                   </p>
-                  <p className="text-xs text-white/35">
+                  <p className="text-xs text-white/65 leading-relaxed">
                     {s.sublabel}
                   </p>
                 </div>

@@ -4,7 +4,7 @@
 
 @layer base {
   html, body, .font-sans {
-    font-family: var(--font-lxgw), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-family: var(--font-noto), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   }
 }
 /* ─────────────────────────────────────────
@@ -53,6 +53,11 @@ main > section {
 ::selection {
   background: rgba(165, 180, 252, 0.30);
   color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #c7d2fe;
+  outline-offset: 3px;
 }
 
 /* Custom scrollbar (desktop) */

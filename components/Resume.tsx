@@ -34,12 +34,12 @@ export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
         view: "View full resume",
       }
     : {
-        eyebrow: "我的简历",
-        heading: "想进一步了解我？",
-        title: "我的简历，也是一份更详细的自我介绍",
-        description: "学习经历与取得的成就都整理在这份文件中。你可以下载 PDF，或在新分页中查看。",
-        download: "下载简历 (.pdf)",
-        view: "查看完整简历",
+        eyebrow: "我的履歷",
+        heading: "想進一步了解我？",
+        title: "我的履歷，也是一份更詳細的自我介紹",
+        description: "學習經歷與取得的成果都整理在這份文件中。你可以下載 PDF，或在新分頁中查看。",
+        download: "下載履歷 (.pdf)",
+        view: "查看完整履歷",
       };
 
   return (
@@ -53,7 +53,7 @@ export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <p className="text-xs tracking-[0.2em] uppercase text-white/30 mb-3">
+          <p className="text-xs tracking-[0.2em] uppercase text-white/55 mb-3">
            {copy.eyebrow}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white/90 tracking-tight">
@@ -79,7 +79,7 @@ export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
                 <h3 className="text-xl font-semibold text-white/88 mb-2 tracking-tight">
                  {copy.title}
                 </h3>
-                <p className="text-sm text-white/45 leading-relaxed max-w-sm">
+                <p className="text-sm text-white/70 leading-relaxed max-w-sm">
                   {copy.description}
                 </p>
               </div>
@@ -109,8 +109,8 @@ export default function Resume({ locale = "zh" }: { locale?: "zh" | "en" }) {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="glass-btn-secondary inline-flex items-center gap-2
-                           px-6 py-3 rounded-xl text-sm font-medium text-white/50
-                           hover:text-white/75"
+                           px-6 py-3 rounded-xl text-sm font-medium text-white/75
+                           hover:text-white"
               >
                 {copy.view}
                 <ArrowUpRight size={14} />
