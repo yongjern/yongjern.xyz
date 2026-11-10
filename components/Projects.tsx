@@ -2,10 +2,22 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Gauge, Server, ExternalLink, Zap, Rss } from "lucide-react";
+import { Gauge, Server, ExternalLink, Zap, Rss, Wifi } from "lucide-react";
 
 // ─── Project data ────────────────────────────────────────────────────────────
 const projectsZh = [
+  {
+    icon: Wifi,
+    eyebrow: "校園網路工具",
+    title: "UMKWiFi",
+    description:
+      "協助 UMK 學生在支援的校園 Wi-Fi 登入頁面自動填寫帳號資料並送出，簡化每次連線流程。",
+    role: "開發 Manifest V3 瀏覽器擴充功能、測試多個校園據點，並發布至 Microsoft Edge Add-ons。",
+    tags: ["Browser Extension", "Manifest V3", "Microsoft Edge", "隱私優先"],
+    tagColor: "purple",
+    href: "https://wifi.umk4u.tech",
+    glowClass: "hover:shadow-glass-purple",
+  },
   {
     icon: Gauge,
     eyebrow: "一站式大學網站",
@@ -46,6 +58,18 @@ const projectsZh = [
 ];
 
 const projectsEn = [
+  {
+    icon: Wifi,
+    eyebrow: "Campus connectivity tool",
+    title: "UMKWiFi",
+    description:
+      "A browser extension that automatically fills and submits supported UMK campus Wi-Fi login portals, making repeat connections simpler for students.",
+    role: "Developed the Manifest V3 extension, tested it across multiple campus locations, and published it on Microsoft Edge Add-ons.",
+    tags: ["Browser Extension", "Manifest V3", "Microsoft Edge", "Privacy-first"],
+    tagColor: "purple",
+    href: "https://wifi.umk4u.tech",
+    glowClass: "hover:shadow-glass-purple",
+  },
   {
     icon: Gauge,
     eyebrow: "University Dashboard",
@@ -230,7 +254,7 @@ export default function Projects({ locale = "zh" }: { locale?: "zh" | "en" }) {
               {copy.summary}
             </p>
             <p className="text-xs text-white/65 leading-relaxed">
-              React · Next.js · Astro · WordPress · WooCommerce
+              React · Next.js · Astro · Browser Extensions · WordPress · WooCommerce
             </p>
           </div>
         </motion.div>

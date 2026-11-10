@@ -59,9 +59,9 @@ export default function Hero({ locale = "zh" }: { locale?: "zh" | "en" }) {
         <motion.h1
           variants={itemVariants}
           className="text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[6.5rem]
-                     font-bold tracking-tight leading-none mb-5"
+                     font-bold tracking-tight leading-[1.08] mb-5"
         >
-          <span className="text-gradient">Yong</span>{" "}
+          <span className="text-gradient inline-block pb-[0.08em] -mb-[0.08em]">Yong</span>{" "}
           <span className="text-white/88">Jie Ern</span>
         </motion.h1>
 
